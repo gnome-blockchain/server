@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": [
+    "frontend/**/*.ts",
+    "backend/**/*.ts",
+    "auth/**/*.ts",
+    "blockchain/**/*.ts",
+    "index.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

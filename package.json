@@ -1,0 +1,23 @@
+{
+  "name": "gnome-project",
+  "version": "1.0.0",
+  "description": "A TypeScript project for Gnome based project.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node index.ts",
+    "clean": "rm -rf dist"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "typescript": "^5.1.0",
+    "ts-node": "^10.9.1",
+    "@types/node": "^20.0.0"
+  }
+}
