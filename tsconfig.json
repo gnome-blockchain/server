@@ -14,11 +14,12 @@
     "sourceMap": true
   },
   "include": [
+    "index.ts",
     "frontend/**/*.ts",
+    "ipfs/**/*.ts",
     "backend/**/*.ts",
     "auth/**/*.ts",
     "blockchain/**/*.ts",
-    "index.ts",
   ],
   "exclude": [
     "node_modules",

@@ -3,9 +3,13 @@ import { startFrontend } from "./frontend";
 import { startBackend } from "./backend";
 import { authenticateUser } from "./auth";
 import { initializeBlockchain } from "./blockchain";
+import { initializeIpfs } from "./ipfs";
 
 // Initialize frontend
 startFrontend();
+
+// Initialize ipfs
+initializeIpfs();
 
 // Initialize backend
 startBackend();
