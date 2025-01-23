@@ -9,6 +9,8 @@ interface Config {
   rootAdmin: string;
   rootPassword: string;
   blockchainOwnerPublicKey: string;
+  pinataApiKey: string;
+  pinataApiSecret: string;
 }
 
 const config: Config = {
@@ -17,6 +19,8 @@ const config: Config = {
   rootAdmin: process.env.ROOT_ADMIN || "defaultAdmin",
   rootPassword: process.env.ROOT_PASSWORD || "defaultPassword",
   blockchainOwnerPublicKey: process.env.BLOCKCHAIN_OWNER_PUBLIC_KEY || "",
+  pinataApiKey: process.env.PINATA_API_KEY || "",
+  pinataApiSecret: process.env.PINATA_API_SECRET || "",
 };
 
 export default config;
