@@ -1,5 +1,7 @@
-export function initializeBlockchain() {
-    console.log("Blockchain initialized");
-    // Add your blockchain initialization logic here
-  }
-  
+import { Router } from "express";
+
+export const blockchainApi = Router();
+
+blockchainApi.get("/info", (req, res) => {
+  res.send({ status: "Blockchain initialized", network: "Holesky" });
+});

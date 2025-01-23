@@ -1,25 +1,35 @@
+
+import express from "express";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
 // Importing modules from different folders
-import { startFrontend } from "./frontend";
-import { startBackend } from "./backend";
-import { authenticateUser } from "./auth";
-import { initializeBlockchain } from "./blockchain";
-import { initializeIpfs } from "./ipfs";
+import { frontendApi } from "./frontend";
+import { backendApi } from "./backend";
+import { authenticateOwner, authApi } from "./auth";
+import { blockchainApi } from "./blockchain";
+import { ipfsApi } from "./ipfs";
+import config from "./config";
 
-// Initialize frontend
-startFrontend();
+const app = express();
+const { port, env, rootAdmin, rootPassword } = config;
 
-// Initialize ipfs
-initializeIpfs();
+// Middleware for parsing JSON
+app.use(bodyParser.json());
 
-// Initialize backend
-startBackend();
+// Mount APIs
+app.use("/frontend", frontendApi);
+app.use("/backend", backendApi);
+app.use("/auth", authApi);
+app.use("/blockchain", blockchainApi);
+app.use("/ipfs", ipfsApi);
 
 // Authenticate a user (example user)
-const user = {
-  username: "exampleUser",
-  password: "password123"
-};
-authenticateUser(user);
+const user = { username:rootAdmin, password:rootPassword };
+authenticateOwner(user);
 
-// Initialize blockchain connection
-initializeBlockchain();
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port} in ${env} mode`);
+});
+
+
