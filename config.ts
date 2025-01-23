@@ -1,17 +1,7 @@
 import dotenv from "dotenv";
-
+import { Config } from "./DataTypes/interface"
 // Load environment variables from .env file
 dotenv.config();
-
-interface Config {
-  port: number;
-  env: string;
-  rootAdmin: string;
-  rootPassword: string;
-  blockchainOwnerPublicKey: string;
-  pinataApiKey: string;
-  pinataApiSecret: string;
-}
 
 const config: Config = {
   port: parseInt(process.env.PORT || "3000", 10),
