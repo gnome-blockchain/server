@@ -1,7 +1,6 @@
 
 import express from "express";
 import bodyParser from "body-parser";
-import dotenv from "dotenv";
 // Importing modules from different folders
 import { frontendApi } from "./frontend";
 import { initializeRootAdmin, backendApi } from "./backend";
