@@ -4,14 +4,14 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 // Importing modules from different folders
 import { frontendApi } from "./frontend";
-import { backendApi } from "./backend";
-import { authenticateOwner, authApi } from "./auth";
-import { blockchainApi } from "./blockchain";
+import { initializeRootAdmin, backendApi } from "./backend";
+import { authApi } from "./auth";
+import { initializeBlockchainOwner, blockchainApi } from "./blockchain";
 import { ipfsApi } from "./ipfs";
 import config from "./config";
 
 const app = express();
-const { port, env, rootAdmin, rootPassword } = config;
+const { port, env, rootAdmin, rootPassword, blockchainOwnerPublicKey } = config;
 
 // Middleware for parsing JSON
 app.use(bodyParser.json());
@@ -23,9 +23,9 @@ app.use("/auth", authApi);
 app.use("/blockchain", blockchainApi);
 app.use("/ipfs", ipfsApi);
 
-// Authenticate a user (example user)
-const user = { username:rootAdmin, password:rootPassword };
-authenticateOwner(user);
+// Initialize Admin
+initializeRootAdmin(rootAdmin, rootPassword);
+initializeBlockchainOwner(blockchainOwnerPublicKey);
 
 // Start the server
 app.listen(port, () => {
